@@ -1,0 +1,104 @@
+---
+---
+
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <span class="logo-text">Junior Dev</span>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="#presentacion" title="Me presento...." class="nav-link">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a href="#skills" title="Habilidades dominadas" class="nav-link">Habilidades</a>
+      </li>
+      <li class="nav-item">
+        <a href="#proyectos" title="Proyectos funcionales" class="nav-link">Proyectos</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contacto" title="Contactame" class="nav-link">Contacto</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+    border-bottom: 2px solid var(--border-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+  }
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .logo-text {
+    background: linear-gradient(135deg, var(--accent-bright), var(--primary-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .nav-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-bright);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-bright);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+      gap: 1rem;
+    }
+
+    .navbar-container {
+      padding: 0 1rem;
+    }
+  }
+</style>

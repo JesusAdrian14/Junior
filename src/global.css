@@ -1,0 +1,37 @@
+/*:root {
+  --primary-dark: #0a1628;
+  --primary-light: #1a3a52;
+  --primary-accent: #2a5a8a;
+  --accent-bright: #3b82f6;
+  --text-primary: #e0e7ff;
+  --text-secondary: #a8b8d8;
+  --bg-dark: #0f1923;
+  --border-color: #2a5a8a;
+}*/
+
+:root {
+    /* Tema Light (Blanco) */
+    --primary-dark: #f8fafc; /* Blanco azulado (fondo) */
+    --primary-light: #f1f5f9; /* Gris muy claro */
+    --primary-accent: #2563eb; /* Azul más oscuro para mejor contraste */
+    --accent-bright: #3b82f6; /* Azul brillante */
+    --text-primary: #0a1628; /* Texto oscuro (el mismo de tu primary-dark original) */
+    --text-secondary: #334155; /* Gris oscuro */
+    --bg-dark: #ffffff; /* Blanco puro */
+    --border-color: #cbd5e1; /* Gris claro para bordes */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, sans-serif;
+    line-height: 1.6;
+}
