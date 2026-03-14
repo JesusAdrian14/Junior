@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 function SkillsC() {
   const [skillsFetch, setSkillsFetch] = useState<Skills[]>([]);
-  const [loading, setLoading] = useState(false);
+
   const [opcion, setOpcion] = useState<number>(0);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function SkillsC() {
   }, [opcion]);
 
   const fetchSkills = async () => {
-    setLoading(true);
+
     try {
       await new Promise((resolve) => setTimeout(resolve, 300));
 
@@ -62,8 +62,6 @@ function SkillsC() {
       setSkillsFetch(filteredSkills);
     } catch (error) {
       console.error("Error al cargar habilidades:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -104,43 +102,36 @@ function SkillsC() {
           </Button>
         </div>
 
-        {loading ? (
-          <div className={styles.loading}>
-            <div className={styles.spinner}></div>
-            <p>Cargando habilidades...</p>
-          </div>
-        ) : (
-          <>
-            <div className={styles["skill-grid"]}>
-              {skillsFetch.map((skill, index) => (
-                <div key={index} className={styles["skill-card"]}>
-                  <div className={styles["skill-image-container"]}>
-                    <img
-                      src={skill.logo}
-                      alt={skill.name}
-                      className={styles["skill-logo"]}
-                      loading="lazy"
-                      onError={(e) => {
-                        console.log(`Error cargando imagen: ${skill.logo}`);
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = "none";
-                        // Mostrar iniciales como fallback
-                        const parent = target.parentElement;
-                        if (parent) {
-                          const fallback = document.createElement("div");
-                          fallback.className = styles["image-fallback"];
-                          fallback.textContent = skill.name.charAt(0);
-                          parent.appendChild(fallback);
-                        }
-                      }}
-                    />
-                  </div>
-                  <h3 className={styles["skill-name"]}>{skill.name}</h3>
-                </div>
-              ))}
+
+        <div className={styles["skill-grid"]}>
+          {skillsFetch.map((skill, index) => (
+            <div key={index} className={styles["skill-card"]}>
+              <div className={styles["skill-image-container"]}>
+                <img
+                  src={skill.logo}
+                  alt={skill.name}
+                  className={styles["skill-logo"]}
+                  loading="lazy"
+                  onError={(e) => {
+                    console.log(`Error cargando imagen: ${skill.logo}`);
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = "none";
+                    // Mostrar iniciales como fallback
+                    const parent = target.parentElement;
+                    if (parent) {
+                      const fallback = document.createElement("div");
+                      fallback.className = styles["image-fallback"];
+                      fallback.textContent = skill.name.charAt(0);
+                      parent.appendChild(fallback);
+                    }
+                  }}
+                />
+              </div>
+              <h3 className={styles["skill-name"]}>{skill.name}</h3>
             </div>
-          </>
-        )}
+          ))}
+        </div>
+
       </div>
     </div>
   );
