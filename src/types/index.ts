@@ -1,4 +1,5 @@
 export type Skills = {
-    name: string;
-    logo: string;
-}
+  name: string;
+  logo: string;
+  sector: string[];
+};

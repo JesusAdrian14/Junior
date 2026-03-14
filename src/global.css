@@ -8,17 +8,28 @@
   --bg-dark: #0f1923;
   --border-color: #2a5a8a;
 }*/
-
 :root {
-    /* Tema Light (Blanco) */
-    --primary-dark: #f8fafc; /* Blanco azulado (fondo) */
-    --primary-light: #f1f5f9; /* Gris muy claro */
-    --primary-accent: #2563eb; /* Azul más oscuro para mejor contraste */
+    /* Dark Theme */
+
+    --primary-dark: #e7e7e7; /* Fondo principal muy oscuro */
+    --primary-light: hsla(0, 0%, 100%, 0.014); /* Superficie / cards */
+    --primary-accent: #2563eb; /* Azul principal */
     --accent-bright: #3b82f6; /* Azul brillante */
-    --text-primary: #0a1628; /* Texto oscuro (el mismo de tu primary-dark original) */
-    --text-secondary: #334155; /* Gris oscuro */
-    --bg-dark: #ffffff; /* Blanco puro */
-    --border-color: #cbd5e1; /* Gris claro para bordes */
+    --white: white;
+
+    --text-primary: white; /* Texto principal */
+    --text-secondary: white; /* Texto secundario */
+
+    --bg-dark: #020617; /* Fondo general */
+    --border-color: #1e293b; /* Bordes */
+}
+
+.text-title  {
+    font-size: 30px !important;
+    color: white !important;
+    text-shadow: 0 0 14px 3px white !important;
+    font-weight: 900 !important;
+    font-family: sans-serif !important;
 }
 
 * {
@@ -28,8 +39,6 @@
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
     font-family:
         -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
         Cantarell, sans-serif;

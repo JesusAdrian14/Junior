@@ -1,104 +1,211 @@
 ---
+import { Image } from "astro:assets";
+
+// navbar.astro
 ---
 
 <nav class="navbar">
-  <div class="navbar-container">
-    <div class="navbar-logo">
-      <span class="logo-text">Junior Dev</span>
+    <div class="navbar-container">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#presentacion" title="Me presento...." class="nav-link"
+                    >Inicio</a
+                >
+            </li>
+            <li class="nav-item">
+                <a href="#skills" title="Habilidades dominadas" class="nav-link"
+                    >Habilidades</a
+                >
+            </li>
+            <li class="nav-item">
+                <a
+                    href="#proyectos"
+                    title="Proyectos funcionales"
+                    class="nav-link">Proyectos</a
+                >
+            </li>
+            <li class="nav-item">
+                <a href="#contacto" title="Contactame" class="nav-link"
+                    >Contacto</a
+                >
+            </li>
+        </ul>
     </div>
-    <ul class="nav-menu">
-      <li class="nav-item">
-        <a href="#presentacion" title="Me presento...." class="nav-link">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a href="#skills" title="Habilidades dominadas" class="nav-link">Habilidades</a>
-      </li>
-      <li class="nav-item">
-        <a href="#proyectos" title="Proyectos funcionales" class="nav-link">Proyectos</a>
-      </li>
-      <li class="nav-item">
-        <a href="#contacto" title="Contactame" class="nav-link">Contacto</a>
-      </li>
-    </ul>
-  </div>
+    <div class="container-redes">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="https://github.com/JesusAdrian14"
+                    ><img
+                        class="img-red"
+                        src="/icons8-github-48.png"
+                        title="GitHub"
+                        alt="GitHub"
+                    /></a
+                >
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <style>
-  .navbar {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-    border-bottom: 2px solid var(--border-color);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-  }
+    .navbar {
+        max-width: 1200px;
+        width: 100%;
+        top: 5px;
+        left: 0;
+        display: flex;
+        justify-content: flex-end;
+        gap: 19rem;
+        align-items: center;
+        z-index: 1000;
+        animation: slideDown 0.5s ease;
+        position: sticky;
+    }
 
-  .navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    @keyframes slideDown {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
 
-  .navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
+    .navbar-container
+     {
+        width: fit-content;
+        border: 2px solid white;
+        backdrop-filter: blur(1px);
+        border-radius: 50px;
+        padding: 0.2rem 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+    .container-redes{
+        width: fit-content;
+    }
 
-  .logo-text {
-    background: linear-gradient(135deg, var(--accent-bright), var(--primary-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+    .navbar-container:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    }
 
-  .nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-  }
-
-  .nav-item {
-    margin: 0;
-  }
-
-  .nav-link {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-    padding: 0.5rem 0;
-  }
-
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent-bright);
-    transition: width 0.3s ease;
-  }
-
-  .nav-link:hover {
-    color: var(--accent-bright);
-  }
-
-  .nav-link:hover::after {
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
     .nav-menu {
-      gap: 1rem;
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+        margin: 0;
+        padding: 0;
     }
 
-    .navbar-container {
-      padding: 0 1rem;
+    .nav-item {
+        margin: 0;
+        position: relative;
     }
-  }
+
+    .nav-link {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        transition: all 0.3s ease;
+        position: relative;
+        opacity: 0.8;
+        letter-spacing: 0.5px;
+    }
+    .nav-link:hover {
+        opacity: 1;
+    }
+
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: #ffffff;
+        transition: width 100ms ease-in-out;
+        border-radius: 2px;
+    }
+    img {
+        background-color: white;
+        border-radius: 100%;
+        
+    }
+    img:hover {
+        animation: img 200ms infinite ease-in;
+    }
+    @keyframes img {
+        from {
+            box-shadow: 0 0 13px 4px white;
+        }
+        to {
+            box-shadow: 0 9px 2px white;
+        }
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Media queries para responsive */
+    @media (max-width: 768px) {
+        .navbar-container,
+        .container-redes {
+            width: 100%;
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-menu {
+            gap: 1.2rem;
+            justify-content: center;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .navbar-container,
+        .container-redes {
+            border-radius: 25px;
+            padding: 0.4rem 0.8rem;
+        }
+
+        .nav-menu {
+            gap: 0.8rem;
+        }
+
+        .nav-link {
+            font-size: 0.8rem;
+        }
+    }
+
+    /* Para tema oscuro/claro (opcional) */
+    @media (prefers-color-scheme: light) {
+        .navbar-container,
+        .container-redes {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            color: #1a1a1a;
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
+        }
+
+        .nav-link::after {
+            background: #2563eb;
+        }
+    }
 </style>
