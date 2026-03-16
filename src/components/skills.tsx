@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
 import type { Skills } from "../types";
-import { skills } from "../lib/info";
+import { skills } from "../lib/skills";
 import { Button } from "./ui/button";
 
 function SkillsC() {
@@ -14,7 +14,6 @@ function SkillsC() {
   }, [opcion]);
 
   const fetchSkills = async () => {
-
     try {
       await new Promise((resolve) => setTimeout(resolve, 300));
 
@@ -102,7 +101,6 @@ function SkillsC() {
           </Button>
         </div>
 
-
         <div className={styles["skill-grid"]}>
           {skillsFetch.map((skill, index) => (
             <div key={index} className={styles["skill-card"]}>
@@ -131,7 +129,6 @@ function SkillsC() {
             </div>
           ))}
         </div>
-
       </div>
     </div>
   );
